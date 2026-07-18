@@ -1,0 +1,27 @@
+.orders-page {
+    background: #f4f7fb;
+    min-height: 100vh;
+    padding: 30px;
+    width: 100%;
+}
+
+
+.orders-page .card {
+    width: 100%;
+}
+
+
+.orders-page .table-responsive {
+    width: 100%;
+}
+
+
+.orders-page table {
+    min-width: 900px;
+}
+
+
+.orders-page th,
+.orders-page td {
+    white-space: nowrap;
+}

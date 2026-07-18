@@ -1,0 +1,138 @@
+.cartContainer{
+  width:90%;
+  margin:20px auto;
+  background:white;
+  padding:20px;
+  border-radius:15px;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.cartCard{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:15px;
+  margin-bottom:15px;
+}
+
+.cartCard img{
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.details{
+  width:220px;
+}
+
+.details h3{
+  margin:0;
+}
+
+.details p{
+  margin-top:5px;
+  color:gray;
+}
+
+/* Quantity */
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.quantity span{
+  font-size:18px;
+  font-weight:600;
+}
+
+.minusBtn,
+.plusBtn{
+  width:35px;
+  height:35px;
+  border:none;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:20px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+/* Minus */
+
+.minusBtn{
+  background:#dc3545;
+}
+
+.minusBtn:hover{
+  background:#bb2d3b;
+}
+
+/* Plus */
+
+.plusBtn{
+  background:#198754;
+}
+
+.plusBtn:hover{
+  background:#157347;
+}
+
+/* Delete */
+
+.deleteBtn{
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:8px;
+  background:#dc3545;
+  color:white;
+  cursor:pointer;
+  font-size:18px;
+  transition:.3s;
+}
+
+.deleteBtn:hover{
+  background:#bb2d3b;
+}
+
+/* Bottom */
+
+.bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:30px;
+}
+
+/* Order Button */
+
+.orderBtn{
+  border:none;
+  background:#0b7d5b;
+  color:white;
+  padding:12px 25px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:17px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.orderBtn:hover{
+  background:green;
+}
+
+.emptyCart{
+  text-align:center;
+  margin:40px 0;
+}

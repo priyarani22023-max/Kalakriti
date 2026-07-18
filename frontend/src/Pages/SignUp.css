@@ -1,0 +1,67 @@
+.backgroundImage {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../assets/bg_Signup.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MAIN CARD (AddProduct style look) */
+.signup-card {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(5px);
+}
+
+/* TITLE */
+.signup-card h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* FORM */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABEL */
+.signup-form label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* INPUT BOX */
+.signup-form input {
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* BUTTON */
+.signup-form button {
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    font-weight: bold;
+}
+
+/* LOGIN TEXT */
+.login-text {
+    text-align: center;
+    margin-top: 15px;
+}
