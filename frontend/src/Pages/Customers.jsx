@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "./frontendApi";
 
 function Customers() {
   const [customers, setCustomers] = useState([]);
@@ -10,7 +10,7 @@ function Customers() {
 
   const fetchCustomers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/orders");
+      const res = await API.get("/api/orders");
 
       const uniqueCustomers = [];
       const emailSet = new Set();
@@ -77,7 +77,6 @@ function Customers() {
 
       <div className="table-responsive">
         <table className="table table-hover align-middle">
-
           <thead
             style={{
               background: "#f5f7fa",
@@ -96,7 +95,6 @@ function Customers() {
             {customers.length > 0 ? (
               customers.map((customer) => (
                 <tr key={customer.email}>
-
                   <td>{customer.id}</td>
 
                   <td>
@@ -135,7 +133,6 @@ function Customers() {
                   <td>
                     {new Date(customer.createdAt).toLocaleDateString()}
                   </td>
-
                 </tr>
               ))
             ) : (
@@ -146,7 +143,6 @@ function Customers() {
               </tr>
             )}
           </tbody>
-
         </table>
       </div>
     </div>

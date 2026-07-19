@@ -1,11 +1,9 @@
 import axios from "axios";
 
-// Create axios instance
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
 });
 
-// Attach token automatically in every request
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
@@ -16,22 +14,20 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// ---------------- AUTH APIs ----------------
-
-// SIGNUP API
 export const signUpUser = (data) => {
-  return API.post("/signup", data);
+  return API.post("/api/auth/signup", data);
 };
 
-// LOGIN API
 export const loginUser = (data) => {
-return axios.post("http://localhost:5000/api/auth/login", data);
-};
-export const createOrder = async(orderData) => {
-  return await API.post("/api/orders", orderData);
+  return API.post("/api/auth/login", data);
 };
 
-// Get All Orders
-export const getAllOrders = async () => {
-  return await API.get("/orders");
+export const createOrder = (orderData) => {
+  return API.post("/api/orders", orderData);
 };
+
+export const getAllOrders = () => {
+  return API.get("/api/orders");
+};
+
+export default API;

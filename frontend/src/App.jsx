@@ -27,7 +27,7 @@ function Layout() {
       {!hideNavbar && <Navbar />}
 
       <Routes>
-        {/* ================= USER ROUTES ================= */}
+        {/*  USER ROUTES  */}
         <Route path="/" element={<Home />} />
 
         <Route path="/products" element={<Products />} />
@@ -40,7 +40,7 @@ function Layout() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
 
-        {/* ================= ADMIN ROUTES ================= */}
+        {/* ADMIN ROUTES  */}
         <Route path="/admin" element={<AdminLayout />}>
           {/* Dashboard */}
           <Route index element={<Admin />} />

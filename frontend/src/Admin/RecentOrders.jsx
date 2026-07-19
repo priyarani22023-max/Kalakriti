@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../Pages/frontendApi";
 
 function RecentOrders() {
   const [orders, setOrders] = useState([]);
@@ -10,7 +10,7 @@ function RecentOrders() {
 
   const fetchRecentOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/orders");
+      const res = await API.get("/api/orders");
 
       // Latest 5 Orders
       setOrders(res.data.slice(0, 5));
@@ -61,7 +61,6 @@ function RecentOrders() {
 
       <div className="table-responsive">
         <table className="table table-hover align-middle">
-
           <thead
             style={{
               background: "#f5f7fa",
@@ -86,8 +85,7 @@ function RecentOrders() {
 
                   <td>
                     <strong>
-                      {order.orderId ||
-                        order._id.slice(-6).toUpperCase()}
+                      {order.orderId || order._id.slice(-6).toUpperCase()}
                     </strong>
                   </td>
 
@@ -122,16 +120,12 @@ function RecentOrders() {
               ))
             ) : (
               <tr>
-                <td
-                  colSpan="7"
-                  className="text-center py-4"
-                >
+                <td colSpan="7" className="text-center py-4">
                   No Recent Orders
                 </td>
               </tr>
             )}
           </tbody>
-
         </table>
       </div>
     </div>

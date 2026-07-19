@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./AddProduct.css";
-import axios from "axios";
+import API from "./frontendApi";
 
 function AddProducts() {
   const [product, setProduct] = useState({
@@ -33,7 +33,7 @@ function AddProducts() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/products", product);
+      await API.post("/api/products", product);
 
       alert("Product Added Successfully");
 

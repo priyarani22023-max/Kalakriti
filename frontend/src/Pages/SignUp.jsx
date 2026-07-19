@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { signUpUser } from "./frontendApi";
 import "./SignUp.css";
 
 function SignUp() {
@@ -10,7 +10,7 @@ function SignUp() {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", {
+      const res = await signUpUser({
         name,
         email,
         password,
@@ -62,7 +62,7 @@ function SignUp() {
               className="btn btn-success"
               onClick={handleSignup}
             >
-              SignUp
+              Sign Up
             </button>
 
             <p className="login-text">

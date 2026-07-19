@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Checkout.css";
-import axios from "axios";
+import API from "./frontendApi";
 
 function Checkout() {
   const navigate = useNavigate();
@@ -47,10 +47,10 @@ function Checkout() {
 
     try {
       for (const item of cartItems) {
-        await axios.post("http://localhost:5000/api/orders", {
+        await API.post("/api/orders", {
           customerName: form.name,
           email: form.email,
-           phone: form.phone,
+          phone: form.phone,
           product: item.title || item.name,
           quantity: item.quantity || 1,
           price: Number(item.price) * (item.quantity || 1),
@@ -72,13 +72,10 @@ function Checkout() {
 
   return (
     <div className="checkout-container">
-
       <div className="checkout-left">
-
         <h2>Delivery Details</h2>
 
         <form onSubmit={handlePlaceOrder}>
-
           <input
             type="text"
             name="name"
@@ -138,51 +135,34 @@ function Checkout() {
             <option>Card</option>
           </select>
 
-          <button
-            type="submit"
-            className="place-btn"
-          >
+          <button type="submit" className="place-btn">
             Place Order
           </button>
-
         </form>
-
       </div>
 
       <div className="checkout-right">
-
         <h2>Order Summary</h2>
 
         {cartItems.map((item) => (
-          <div
-            className="summary-card"
-            key={item._id || item.id}
-          >
-
+          <div className="summary-card" key={item._id || item.id}>
             <img
               src={item.image}
               alt={item.title || item.name}
             />
 
             <div>
-
               <h4>{item.title || item.name}</h4>
-
               <p>Qty : {item.quantity || 1}</p>
-
               <p>₹{item.price}</p>
-
             </div>
-
           </div>
         ))}
 
         <hr />
 
         <h3>Total Amount: ₹{totalAmount}</h3>
-
       </div>
-
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import "./product.css";
+import "./products.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import API from "./frontendApi";
 
 function ProductPage() {
   const [products, setProducts] = useState([]);
@@ -18,7 +18,7 @@ function ProductPage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await API.get("/api/products");
       setProducts(res.data);
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ function ProductPage() {
     return cartItems.some((item) => item._id === id);
   };
 
-  // SEARCH 
+  // SEARCH
 
   const keyword = categoryName
     ? decodeURIComponent(categoryName).toLowerCase().trim()
@@ -84,7 +84,7 @@ function ProductPage() {
   });
 
   // HEADING LOGIC
- 
+
   let heading = "Our Collection";
 
   if (keyword && filteredProducts.length > 0) {
@@ -96,29 +96,22 @@ function ProductPage() {
 
     if (sameCategory) {
       heading = firstCategory;
-    }  
+    }
   }
 
   return (
     <>
       <div className="product-container">
-
         {/* Heading */}
 
-        <h1 className="text-center mb-5">
-          {heading}
-        </h1>
+        <h1 className="text-center mb-5">{heading}</h1>
 
         {/* Products */}
 
         <div className="product-grid">
-
-                  {filteredProducts.length > 0 ? (
-
-            filteredProducts.map((product) => ( 
-
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
               <div className="card" key={product._id}>
-
                 <img
                   src={product.image}
                   alt={product.title}
@@ -127,10 +120,7 @@ function ProductPage() {
                 />
 
                 <div className="card-body">
-
-                  <h5 className="card-title">
-                    {product.title}
-                  </h5>
+                  <h5 className="card-title">{product.title}</h5>
 
                   <p className="card-text">
                     Artist: {product.artist}
@@ -139,52 +129,38 @@ function ProductPage() {
                   <h6>₹{product.price}</h6>
 
                   {isInCart(product._id) ? (
-
                     <button
                       className="btn btn-success mt-auto"
                       onClick={goToCart}
                     >
                       Go To Cart 🛒
                     </button>
-
                   ) : (
-
                     <button
                       className="btn btn-primary mt-auto"
                       onClick={() => addToCart(product)}
                     >
                       Add To Cart
                     </button>
-
                   )}
-
                 </div>
-
               </div>
-
             ))
-
           ) : (
-
             <h3 className="text-center text-danger w-100">
               No Products Found
             </h3>
-
           )}
-
         </div>
-
       </div>
 
       {/* Image Preview */}
 
       {selectedImage && (
-
         <div
           className="image-modal"
           onClick={() => setSelectedImage(null)}
         >
-
           <img
             src={selectedImage}
             alt="Preview"
@@ -198,11 +174,8 @@ function ProductPage() {
           >
             ✕
           </button>
-
         </div>
-
       )}
-
     </>
   );
 }

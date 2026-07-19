@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "./frontendApi";
 import "./Orders.css";
 
 function Orders() {
@@ -12,7 +12,7 @@ function Orders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/orders");
+      const res = await API.get("/api/orders");
       setOrders(res.data);
     } catch (err) {
       console.log(err);
@@ -34,9 +34,7 @@ function Orders() {
       }}
     >
       {/* Header */}
-      <div
-        className="d-flex justify-content-between align-items-center mb-4"
-      >
+      <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
           <h2 style={{ fontWeight: "700" }}>Orders</h2>
           <p className="text-muted mb-0">
@@ -60,7 +58,6 @@ function Orders() {
         <div className="card-body">
 
           {/* Top Section */}
-
           <div className="d-flex justify-content-between align-items-center mb-4">
 
             <input
@@ -89,7 +86,6 @@ function Orders() {
           </div>
 
           {/* Table */}
-
           <div className="table-responsive">
 
             <table className="table table-hover align-middle">
@@ -118,8 +114,7 @@ function Orders() {
 
                       <td>
                         <strong>
-                          {order.orderId ||
-                            order._id.slice(-6).toUpperCase()}
+                          {order.orderId || order._id.slice(-6).toUpperCase()}
                         </strong>
                       </td>
 

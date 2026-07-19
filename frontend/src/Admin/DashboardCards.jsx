@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import API from "../Pages/frontendApi";
 import {
   FaShoppingCart,
   FaBoxOpen,
@@ -18,7 +18,7 @@ function DashboardCards() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/orders");
+      const res = await API.get("/api/orders");
       setOrders(res.data);
     } catch (err) {
       console.log(err);
@@ -27,7 +27,7 @@ function DashboardCards() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await API.get("/api/products");
       setProducts(res.data);
     } catch (err) {
       console.log(err);
@@ -56,11 +56,7 @@ function DashboardCards() {
 
   return (
     <>
-      <div
-        style={{
-          marginBottom: "30px",
-        }}
-      >
+      <div style={{ marginBottom: "30px" }}>
         <h2
           style={{
             fontWeight: "700",
@@ -70,17 +66,12 @@ function DashboardCards() {
           Welcome Back, Admin 👋
         </h2>
 
-        <p
-          style={{
-            color: "#777",
-          }}
-        >
+        <p style={{ color: "#777" }}>
           Here's what's happening in your Kalakriti Store today.
         </p>
       </div>
 
       <div className="row g-4">
-
         <div className="col-lg-3 col-md-6">
           <div style={cardStyle("#00b09b", "#96c93d")}>
             <FaShoppingCart size={38} />
@@ -112,7 +103,6 @@ function DashboardCards() {
             <h2>₹{totalRevenue}</h2>
           </div>
         </div>
-
       </div>
     </>
   );

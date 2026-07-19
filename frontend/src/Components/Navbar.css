@@ -1,7 +1,5 @@
-/* =========================
-   NAVBAR
-========================= */
-
+/* NAVBAR */
+   
 .custom-navbar {
   background: #0b7d5b;
   padding: 12px 0;
@@ -13,9 +11,8 @@
     width:auto;
 }
 
-/* =========================
-   NAV LINKS
-========================= */
+/* NAV LINKS*/
+   
 
 .navbar-nav{
     gap:25px;
@@ -34,9 +31,7 @@
     color:#FFD54F !important;
 }
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search-box{
     width:320px;
@@ -60,9 +55,7 @@
     background:transparent;
 }
 
-/* =========================
-   CART
-========================= */
+/* CART */
 
 .cart-link{
     color:white;
@@ -94,9 +87,7 @@
     align-items:center;
 }
 
-/* =========================
-   LOGIN
-========================= */
+/* LOGIN*/
 
 .login-link{
     color:white;
@@ -112,9 +103,7 @@
     color:#FFD54F;
 }
 
-/* =========================
-   PROFILE
-========================= */
+/* PROFILE */
 
 .profile-icon{
     color:white;
@@ -125,9 +114,7 @@
     color:#FFD54F;
 }
 
-/* =========================
-   SIGNUP
-========================= */
+/* SIGNUP */
 
 .signup-btn{
     background:#FFC107;
@@ -149,9 +136,7 @@
     color:#111;
 }
 
-/* =========================
-   LOGOUT
-========================= */
+/* LOGOUT*/
 
 .logout-btn{
     background:#dc3545;
@@ -166,9 +151,7 @@
     background:#bb2d3b;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/*  MOBILE*/
 
 @media(max-width:992px){
 

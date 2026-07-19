@@ -67,7 +67,7 @@ function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
 
-          {/* ================= USER NAVBAR ================= */}
+          {/*  USER NAVBAR  */}
           {role !== "admin" ? (
             <>
               {/* Left Menu */}
@@ -165,7 +165,7 @@ function Navbar() {
             </>
           ) : (
 
-            /* ================= ADMIN NAVBAR ================= */
+            /*  ADMIN NAVBAR  */
 
             <div className="d-flex justify-content-between align-items-center w-100">
 
