@@ -30,7 +30,16 @@ function ProductPage() {
     setCartItems(saved);
   };
 
+  // LOGIN CHECK + ADD TO CART
   const addToCart = (product) => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Please login first.");
+      navigate("/login");
+      return;
+    }
+
     const saved = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const exists = saved.find((item) => item._id === product._id);
@@ -57,10 +66,12 @@ function ProductPage() {
     const token = localStorage.getItem("token");
 
     if (!token) {
+      alert("Please login first.");
       navigate("/login");
-    } else {
-      navigate("/cart");
+      return;
     }
+
+    navigate("/cart");
   };
 
   const isInCart = (id) => {
@@ -83,7 +94,7 @@ function ProductPage() {
     );
   });
 
-  // HEADING LOGIC
+  // HEADING
 
   let heading = "Our Collection";
 
@@ -102,11 +113,7 @@ function ProductPage() {
   return (
     <>
       <div className="product-container">
-        {/* Heading */}
-
         <h1 className="text-center mb-5">{heading}</h1>
-
-        {/* Products */}
 
         <div className="product-grid">
           {filteredProducts.length > 0 ? (
@@ -153,8 +160,6 @@ function ProductPage() {
           )}
         </div>
       </div>
-
-      {/* Image Preview */}
 
       {selectedImage && (
         <div
