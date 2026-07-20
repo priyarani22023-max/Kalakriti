@@ -32,18 +32,14 @@ function ImageGrid() {
       <h2 className="text-center mb-4">FEATURED IMAGES</h2>
 
       <div className="container-fluid px-2">
-        <div className="row g-3">
+        <div className="image-grid">
           {images.map((img, index) => (
-            <div
-              className="col-6 col-md-4 col-lg"
+            <img
               key={index}
-            >
-              <img
-                src={img}
-                alt={`Featured ${index + 1}`}
-                className="featured-img"
-              />
-            </div>
+              src={img}
+              alt={`Featured ${index + 1}`}
+              className="featured-img"
+            />
           ))}
         </div>
       </div>
