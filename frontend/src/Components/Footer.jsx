@@ -11,7 +11,7 @@ function Footer() {
         <div className="row align-items-center text-center text-lg-start">
 
           {/* Left Side */}
-          <div className="col-12 col-lg-3 mb-3 mb-lg-0 d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start">
+          <div className="col-12 col-lg-3 mb-3 mb-lg-0 d-flex flex-column flex-lg-row align-items-center align-items-lg-start">
             <img
               src={logo}
               alt="Kalakriti"
