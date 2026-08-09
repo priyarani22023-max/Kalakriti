@@ -15,6 +15,21 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Email Regex Validation
+    const emailRegex =
+      /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    if (!emailRegex.test(form.email)) {
+      alert("Please enter a valid email in lowercase.");
+      return;
+    }
+
+    // Password Validation
+    if (!form.password) {
+      alert("Please enter your password.");
+      return;
+    }
+
     try {
       const res = await loginUser(form);
 
@@ -24,9 +39,12 @@ const Login = () => {
       localStorage.setItem("token", res?.data?.token);
       localStorage.setItem("role", res?.data?.role);
 
-      // Save User Details (for Profile Page)
+      // Save User Details
       if (res?.data?.user) {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
+        localStorage.setItem(
+          "user",
+          JSON.stringify(res.data.user)
+        );
       }
 
       alert("Login Successfully");
@@ -43,16 +61,22 @@ const Login = () => {
       } else {
         navigate("/categories");
       }
+
     } catch (err) {
       console.log(err);
-      alert(err.response?.data?.message || "Login Failed");
+
+      alert(
+        err.response?.data?.message || "Login Failed"
+      );
     }
   };
 
   return (
     <div className="login-page">
-      <form onSubmit={handleSubmit}>
-        <div className="login-card">
+
+      <div className="login-card">
+
+        <form onSubmit={handleSubmit}>
 
           <div className="logo">🎨</div>
 
@@ -67,7 +91,10 @@ const Login = () => {
             placeholder="Email Address"
             value={form.email}
             onChange={(e) =>
-              setForm({ ...form, email: e.target.value })
+              setForm({
+                ...form,
+                email: e.target.value,
+              })
             }
           />
 
@@ -76,7 +103,10 @@ const Login = () => {
             placeholder="Password"
             value={form.password}
             onChange={(e) =>
-              setForm({ ...form, password: e.target.value })
+              setForm({
+                ...form,
+                password: e.target.value,
+              })
             }
           />
 
@@ -121,8 +151,10 @@ const Login = () => {
             </Link>
           </p>
 
-        </div>
-      </form>
+        </form>
+
+      </div>
+
     </div>
   );
 };
