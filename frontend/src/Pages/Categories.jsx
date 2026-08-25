@@ -66,7 +66,7 @@ function Categories() {
                   <div className="card-body text-center p-2">
                     <h6 className="fs-5">{category.name}</h6>
 
-                    {/* ✅ FIXED BUTTON */}
+                    {/* FIXED BUTTON */}
                     <button
                       className="btn btn-success btn-lg px-4 py-1"
                       onClick={() => handleExplore(category.name)}

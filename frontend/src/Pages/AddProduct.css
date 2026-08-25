@@ -25,12 +25,12 @@
   z-index: 0;
 }
 
-/* 🔥 BIG CARD */
+/* BIG CARD */
 .form-card {
   position: relative;
   z-index: 1;
 
-  width: 650px;          /* bigger card */
+  width: 650px;          
   max-width: 95%;
   padding: 45px;
 
@@ -44,10 +44,10 @@
   color: white;
 }
 
-/* 🔥 BIG INPUT BOXES */
+/* BIG INPUT BOXES */
 .form-card input {
   width: 100%;
-  padding: 14px 16px;   /* bigger height */
+  padding: 14px 16px;   
   margin-bottom: 14px;
 
   border: none;

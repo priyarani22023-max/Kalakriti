@@ -140,7 +140,7 @@ function ProductPage() {
                       className="btn btn-success mt-auto"
                       onClick={goToCart}
                     >
-                      Go To Cart 🛒
+                      Go To Cart 
                     </button>
                   ) : (
                     <button

@@ -58,7 +58,7 @@ function Checkout() {
         });
       }
 
-      alert("🎉 Order Placed Successfully!");
+      alert("Order Placed Successfully!");
 
       localStorage.removeItem("cartItems");
       setCartItems([]);

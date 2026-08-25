@@ -78,7 +78,7 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
 
-          <div className="logo">🎨</div>
+          <div className="logo"></div>
 
           <h2>Welcome Back!</h2>
 
